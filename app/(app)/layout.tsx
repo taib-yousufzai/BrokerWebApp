@@ -1,0 +1,17 @@
+import AuthGuard from "@/components/AuthGuard";
+import BottomNav from "@/components/BottomNav";
+import TopBar from "@/components/TopBar";
+import Toast from "@/components/Toast";
+
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <AuthGuard>
+      <div className="flex flex-col min-h-screen max-w-md mx-auto bg-gray-50">
+        <TopBar />
+        <Toast />
+        <main className="flex-1 overflow-y-auto pb-20">{children}</main>
+        <BottomNav />
+      </div>
+    </AuthGuard>
+  );
+}
